@@ -4,18 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portal Corporativo</title>
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Inter', sans-serif; }
+        @keyframes pulse-slow {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.05); }
+        }
+        .animate-pulse-slow {
+            animation: pulse-slow 3s infinite ease-in-out;
+        }
     </style>
 </head>
 <body class="bg-gradient-to-br from-slate-950 via-slate-900 to-indigo-950 text-slate-100 min-h-screen flex flex-col justify-between p-6 antialiased selection:bg-indigo-500 selection:text-white">
 
-    <header class="text-center py-8 animate-fade-in">
-        <div class="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 mb-3 shadow-inner">
-            <i class="fa-solid fa-layer-group text-xl"></i>
+    <header class="text-center py-8">
+        <div class="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 mb-3 shadow-inner animate-pulse-slow">
+            <i class="fa-solid fa-layer-group text-2xl"></i>
         </div>
         <h1 class="text-2xl font-bold tracking-tight text-white">Portal de Empresa</h1>
         <p class="text-slate-400 text-sm mt-1">Selecciona la aplicación que deseas iniciar</p>
@@ -23,13 +33,15 @@
 
     <main class="grid grid-cols-1 gap-5 max-w-md mx-auto w-full my-auto">
         
-        <a href="https://jcnr1313.github.io/Recetas/" target="_blank" 
+        <!-- Tarjeta 1: Control de Ocas -->
+        <a href="https://jcnr1313.github.io/Recetas/" target="_blank" onclick="handleClick(event, 'https://jcnr1313.github.io/Recetas/')"
            class="group relative bg-slate-900/60 backdrop-blur-xl border border-slate-800/80 hover:border-indigo-500/50 p-5 rounded-3xl flex items-center space-x-5 shadow-xl shadow-black/20 transition-all duration-300 hover:-translate-y-1 hover:shadow-indigo-500/10 active:scale-[0.98]">
             
             <div class="absolute inset-0 rounded-3xl bg-gradient-to-r from-indigo-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
 
             <div class="relative bg-gradient-to-br from-indigo-500 to-blue-600 text-white w-16 h-16 rounded-2xl flex items-center justify-center text-2xl shadow-lg shadow-indigo-500/30 shrink-0 transition-transform duration-300 group-hover:scale-105">
                 <i class="fa-solid fa-gears"></i>
+                <span class="absolute -top-1 -right-1 w-3.5 h-3.5 bg-emerald-500 border-2 border-slate-900 rounded-full animate-pulse"></span>
             </div>
             
             <div class="relative flex-1">
@@ -41,13 +53,15 @@
             </div>
         </a>
 
-        <a href="https://jcnr1313.github.io/Hoja-de-gastos/" target="_blank" 
+        <!-- Tarjeta 2: Hoja de Gastos -->
+        <a href="https://jcnr1313.github.io/Hoja-de-gastos/" target="_blank" onclick="handleClick(event, 'https://jcnr1313.github.io/Hoja-de-gastos/')"
            class="group relative bg-slate-900/60 backdrop-blur-xl border border-slate-800/80 hover:border-emerald-500/50 p-5 rounded-3xl flex items-center space-x-5 shadow-xl shadow-black/20 transition-all duration-300 hover:-translate-y-1 hover:shadow-emerald-500/10 active:scale-[0.98]">
             
             <div class="absolute inset-0 rounded-3xl bg-gradient-to-r from-emerald-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
 
             <div class="relative bg-gradient-to-br from-emerald-500 to-teal-600 text-white w-16 h-16 rounded-2xl flex items-center justify-center text-2xl shadow-lg shadow-emerald-500/30 shrink-0 transition-transform duration-300 group-hover:scale-105">
                 <i class="fa-solid fa-receipt"></i>
+                <span class="absolute -top-1 -right-1 w-3.5 h-3.5 bg-emerald-500 border-2 border-slate-900 rounded-full animate-pulse"></span>
             </div>
             
             <div class="relative flex-1">
@@ -65,5 +79,40 @@
         Sistema Interno &bull; Acceso Seguro
     </footer>
 
+    <!-- Script de audio interactivo (sin confeti ni modos) -->
+    <script>
+        function playSound() {
+            try {
+                const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(587.33, audioCtx.currentTime); // D5
+                osc.frequency.exponentialRampToValueAtTime(880, audioCtx.currentTime + 0.08); // A5
+                
+                gain.gain.setValueAtTime(0.1, audioCtx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.08);
+                
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+                
+                osc.start();
+                osc.stop(audioCtx.currentTime + 0.08);
+            } catch (e) {
+                // Previene errores si el navegador bloquea audio sin interacción previa
+            }
+        }
+
+        function handleClick(event, url) {
+            event.preventDefault();
+            playSound();
+
+            // Retardo breve para escuchar el efecto antes de abrir la pestaña
+            setTimeout(() => {
+                window.open(url, '_blank');
+            }, 200);
+        }
+    </script>
 </body>
 </html>
