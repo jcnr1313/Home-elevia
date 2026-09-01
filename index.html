@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Corporativo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-slate-950 via-slate-900 to-indigo-950 text-slate-100 min-h-screen flex flex-col justify-between p-6 antialiased selection:bg-indigo-500 selection:text-white">
+
+    <header class="text-center py-8 animate-fade-in">
+        <div class="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 mb-3 shadow-inner">
+            <i class="fa-solid fa-layer-group text-xl"></i>
+        </div>
+        <h1 class="text-2xl font-bold tracking-tight text-white">Portal de Empresa</h1>
+        <p class="text-slate-400 text-sm mt-1">Selecciona la aplicación que deseas iniciar</p>
+    </header>
+
+    <main class="grid grid-cols-1 gap-5 max-w-md mx-auto w-full my-auto">
+        
+        <a href="URL_DE_TU_WEBAPP_OCAS" target="_blank" 
+           class="group relative bg-slate-900/60 backdrop-blur-xl border border-slate-800/80 hover:border-indigo-500/50 p-5 rounded-3xl flex items-center space-x-5 shadow-xl shadow-black/20 transition-all duration-300 hover:-translate-y-1 hover:shadow-indigo-500/10 active:scale-[0.98]">
+            
+            <div class="absolute inset-0 rounded-3xl bg-gradient-to-r from-indigo-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
+
+            <div class="relative bg-gradient-to-br from-indigo-500 to-blue-600 text-white w-16 h-16 rounded-2xl flex items-center justify-center text-2xl shadow-lg shadow-indigo-500/30 shrink-0 transition-transform duration-300 group-hover:scale-105">
+                <i class="fa-solid fa-gears"></i>
+            </div>
+            
+            <div class="relative flex-1">
+                <div class="flex items-center justify-between">
+                    <h2 class="text-lg font-semibold text-white group-hover:text-indigo-300 transition-colors">Control de Ocas</h2>
+                    <i class="fa-solid fa-arrow-right text-slate-600 group-hover:text-indigo-400 transform group-hover:translate-x-1 transition-all mr-2"></i>
+                </div>
+                <p class="text-slate-400 text-xs mt-1 leading-relaxed">Gestión, control y seguimiento de operaciones.</p>
+            </div>
+        </a>
+
+        <a href="URL_DE_TU_WEBAPP_GASTOS" target="_blank" 
+           class="group relative bg-slate-900/60 backdrop-blur-xl border border-slate-800/80 hover:border-emerald-500/50 p-5 rounded-3xl flex items-center space-x-5 shadow-xl shadow-black/20 transition-all duration-300 hover:-translate-y-1 hover:shadow-emerald-500/10 active:scale-[0.98]">
+            
+            <div class="absolute inset-0 rounded-3xl bg-gradient-to-r from-emerald-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
+
+            <div class="relative bg-gradient-to-br from-emerald-500 to-teal-600 text-white w-16 h-16 rounded-2xl flex items-center justify-center text-2xl shadow-lg shadow-emerald-500/30 shrink-0 transition-transform duration-300 group-hover:scale-105">
+                <i class="fa-solid fa-receipt"></i>
+            </div>
+            
+            <div class="relative flex-1">
+                <div class="flex items-center justify-between">
+                    <h2 class="text-lg font-semibold text-white group-hover:text-emerald-300 transition-colors">Hoja de Gastos</h2>
+                    <i class="fa-solid fa-arrow-right text-slate-600 group-hover:text-emerald-400 transform group-hover:translate-x-1 transition-all mr-2"></i>
+                </div>
+                <p class="text-slate-400 text-xs mt-1 leading-relaxed">Registro de tiques, dietas y desplazamientos.</p>
+            </div>
+        </a>
+
+    </main>
+
+    <footer class="text-center text-slate-600 text-xs py-6 tracking-wide">
+        Sistema Interno &bull; Acceso Seguro
+    </footer>
+
+</body>
+</html>
