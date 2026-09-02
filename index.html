@@ -73,13 +73,33 @@
             </div>
         </a>
 
+        <!-- Tarjeta 3: Cuadrante de Guardias -->
+        <a href="https://jcnr1313.github.io/guardias/" target="_blank" onclick="handleClick(event, 'https://jcnr1313.github.io/Guardias/')"
+           class="group relative bg-slate-900/60 backdrop-blur-xl border border-slate-800/80 hover:border-amber-500/50 p-5 rounded-3xl flex items-center space-x-5 shadow-xl shadow-black/20 transition-all duration-300 hover:-translate-y-1 hover:shadow-amber-500/10 active:scale-[0.98]">
+            
+            <div class="absolute inset-0 rounded-3xl bg-gradient-to-r from-amber-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
+
+            <div class="relative bg-gradient-to-br from-amber-500 to-orange-600 text-white w-16 h-16 rounded-2xl flex items-center justify-center text-2xl shadow-lg shadow-amber-500/30 shrink-0 transition-transform duration-300 group-hover:scale-105">
+                <i class="fa-solid fa-calendar-days"></i>
+                <span class="absolute -top-1 -right-1 w-3.5 h-3.5 bg-emerald-500 border-2 border-slate-900 rounded-full animate-pulse"></span>
+            </div>
+            
+            <div class="relative flex-1">
+                <div class="flex items-center justify-between">
+                    <h2 class="text-lg font-semibold text-white group-hover:text-amber-300 transition-colors">Cuadrante de Guardias</h2>
+                    <i class="fa-solid fa-arrow-right text-slate-600 group-hover:text-amber-400 transform group-hover:translate-x-1 transition-all mr-2"></i>
+                </div>
+                <p class="text-slate-400 text-xs mt-1 leading-relaxed">Planificación y control de turnos y vacaciones.</p>
+            </div>
+        </a>
+
     </main>
 
     <footer class="text-center text-slate-600 text-xs py-6 tracking-wide">
         Sistema Interno &bull; Acceso Seguro
     </footer>
 
-    <!-- Script de audio interactivo (sin confeti ni modos) -->
+    <!-- Script de audio interactivo -->
     <script>
         function playSound() {
             try {
