@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portal Corporativo</title>
+    <title>Portal Corporativo • Pro</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- FontAwesome -->
@@ -16,90 +16,107 @@
             0%, 100% { opacity: 1; transform: scale(1); }
             50% { opacity: 0.6; transform: scale(1.05); }
         }
-        .animate-pulse-slow {
-            animation: pulse-slow 3s infinite ease-in-out;
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
         }
+        .animate-pulse-slow { animation: pulse-slow 3s infinite ease-in-out; }
+        .animate-float { animation: float 6s infinite ease-in-out; }
     </style>
 </head>
-<body class="bg-gradient-to-br from-slate-950 via-slate-900 to-indigo-950 text-slate-100 min-h-screen flex flex-col justify-between p-6 antialiased selection:bg-indigo-500 selection:text-white">
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col justify-between p-6 antialiased selection:bg-indigo-500 selection:text-white relative overflow-x-hidden">
 
-    <header class="text-center py-8">
+    <!-- Fondo de Malla Difuminado (Mesh Gradient) -->
+    <div class="absolute top-0 left-1/4 w-96 h-96 bg-indigo-600/15 rounded-full blur-3xl pointer-events-none animate-float"></div>
+    <div class="absolute bottom-10 right-1/4 w-96 h-96 bg-emerald-600/10 rounded-full blur-3xl pointer-events-none animate-float" style="animation-delay: 3s;"></div>
+
+    <!-- Cabecera y Estado -->
+    <header class="text-center py-6 relative z-10">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900/80 border border-slate-800 text-xs text-slate-400 mb-4 shadow-sm backdrop-blur-md">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span>Sistema Operativo • Sesión Segura</span>
+        </div>
         <div class="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 mb-3 shadow-inner animate-pulse-slow">
             <i class="fa-solid fa-layer-group text-2xl"></i>
         </div>
         <h1 class="text-2xl font-bold tracking-tight text-white">Portal de Empresa</h1>
-        <p class="text-slate-400 text-sm mt-1">Selecciona la aplicación que deseas iniciar</p>
+        <p class="text-slate-400 text-sm mt-1">Selecciona una aplicación o usa las teclas <kbd class="px-1.5 py-0.5 bg-slate-800 text-slate-300 rounded text-xs border border-slate-700">1</kbd> <kbd class="px-1.5 py-0.5 bg-slate-800 text-slate-300 rounded text-xs border border-slate-700">2</kbd> <kbd class="px-1.5 py-0.5 bg-slate-800 text-slate-300 rounded text-xs border border-slate-700">3</kbd></p>
     </header>
 
-    <main class="grid grid-cols-1 gap-5 max-w-md mx-auto w-full my-auto">
+    <!-- Contenedor de Tarjetas -->
+    <main class="grid grid-cols-1 gap-5 max-w-md mx-auto w-full my-auto relative z-10">
         
         <!-- Tarjeta 1: Control de Ocas -->
         <a href="https://jcnr1313.github.io/Recetas/" target="_blank" onclick="handleClick(event, 'https://jcnr1313.github.io/Recetas/')"
-           class="group relative bg-slate-900/60 backdrop-blur-xl border border-slate-800/80 hover:border-indigo-500/50 p-5 rounded-3xl flex items-center space-x-5 shadow-xl shadow-black/20 transition-all duration-300 hover:-translate-y-1 hover:shadow-indigo-500/10 active:scale-[0.98]">
+           class="group relative bg-slate-900/60 backdrop-blur-xl border border-slate-800/80 hover:border-indigo-500/60 p-5 rounded-3xl flex items-center space-x-5 shadow-2xl shadow-black/40 transition-all duration-300 hover:-translate-y-1 hover:shadow-indigo-500/10 active:scale-[0.98]">
             
-            <div class="absolute inset-0 rounded-3xl bg-gradient-to-r from-indigo-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
+            <div class="absolute inset-0 rounded-3xl bg-gradient-to-r from-indigo-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
 
             <div class="relative bg-gradient-to-br from-indigo-500 to-blue-600 text-white w-16 h-16 rounded-2xl flex items-center justify-center text-2xl shadow-lg shadow-indigo-500/30 shrink-0 transition-transform duration-300 group-hover:scale-105">
                 <i class="fa-solid fa-gears"></i>
-                <span class="absolute -top-1 -right-1 w-3.5 h-3.5 bg-emerald-500 border-2 border-slate-900 rounded-full animate-pulse"></span>
+                <span class="absolute -top-1 -right-1 w-3.5 h-3.5 bg-emerald-500 border-2 border-slate-900 rounded-full"></span>
             </div>
             
             <div class="relative flex-1">
                 <div class="flex items-center justify-between">
                     <h2 class="text-lg font-semibold text-white group-hover:text-indigo-300 transition-colors">Control de Ocas</h2>
-                    <i class="fa-solid fa-arrow-right text-slate-600 group-hover:text-indigo-400 transform group-hover:translate-x-1 transition-all mr-2"></i>
+                    <span class="text-[10px] font-medium px-2 py-0.5 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">Operativa</span>
                 </div>
                 <p class="text-slate-400 text-xs mt-1 leading-relaxed">Gestión, control y seguimiento de operaciones.</p>
             </div>
+            <i class="fa-solid fa-arrow-right text-slate-600 group-hover:text-indigo-400 transform group-hover:translate-x-1 transition-all"></i>
         </a>
 
         <!-- Tarjeta 2: Hoja de Gastos -->
         <a href="https://jcnr1313.github.io/Hoja-de-gastos/" target="_blank" onclick="handleClick(event, 'https://jcnr1313.github.io/Hoja-de-gastos/')"
-           class="group relative bg-slate-900/60 backdrop-blur-xl border border-slate-800/80 hover:border-emerald-500/50 p-5 rounded-3xl flex items-center space-x-5 shadow-xl shadow-black/20 transition-all duration-300 hover:-translate-y-1 hover:shadow-emerald-500/10 active:scale-[0.98]">
+           class="group relative bg-slate-900/60 backdrop-blur-xl border border-slate-800/80 hover:border-emerald-500/60 p-5 rounded-3xl flex items-center space-x-5 shadow-2xl shadow-black/40 transition-all duration-300 hover:-translate-y-1 hover:shadow-emerald-500/10 active:scale-[0.98]">
             
-            <div class="absolute inset-0 rounded-3xl bg-gradient-to-r from-emerald-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
+            <div class="absolute inset-0 rounded-3xl bg-gradient-to-r from-emerald-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
 
             <div class="relative bg-gradient-to-br from-emerald-500 to-teal-600 text-white w-16 h-16 rounded-2xl flex items-center justify-center text-2xl shadow-lg shadow-emerald-500/30 shrink-0 transition-transform duration-300 group-hover:scale-105">
                 <i class="fa-solid fa-receipt"></i>
-                <span class="absolute -top-1 -right-1 w-3.5 h-3.5 bg-emerald-500 border-2 border-slate-900 rounded-full animate-pulse"></span>
+                <span class="absolute -top-1 -right-1 w-3.5 h-3.5 bg-emerald-500 border-2 border-slate-900 rounded-full"></span>
             </div>
             
             <div class="relative flex-1">
                 <div class="flex items-center justify-between">
                     <h2 class="text-lg font-semibold text-white group-hover:text-emerald-300 transition-colors">Hoja de Gastos</h2>
-                    <i class="fa-solid fa-arrow-right text-slate-600 group-hover:text-emerald-400 transform group-hover:translate-x-1 transition-all mr-2"></i>
+                    <span class="text-[10px] font-medium px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">Finanzas</span>
                 </div>
                 <p class="text-slate-400 text-xs mt-1 leading-relaxed">Registro de tiques, dietas y desplazamientos.</p>
             </div>
+            <i class="fa-solid fa-arrow-right text-slate-600 group-hover:text-emerald-400 transform group-hover:translate-x-1 transition-all"></i>
         </a>
 
-        <!-- Tarjeta 3: Cuadrante de Guardias (Corregida) -->
+        <!-- Tarjeta 3: Cuadrante de Guardias -->
         <a href="https://jcnr1313.github.io/guardias/" target="_blank" onclick="handleClick(event, 'https://jcnr1313.github.io/guardias/')"
-           class="group relative bg-slate-900/60 backdrop-blur-xl border border-slate-800/80 hover:border-amber-500/50 p-5 rounded-3xl flex items-center space-x-5 shadow-xl shadow-black/20 transition-all duration-300 hover:-translate-y-1 hover:shadow-amber-500/10 active:scale-[0.98]">
+           class="group relative bg-slate-900/60 backdrop-blur-xl border border-slate-800/80 hover:border-amber-500/60 p-5 rounded-3xl flex items-center space-x-5 shadow-2xl shadow-black/40 transition-all duration-300 hover:-translate-y-1 hover:shadow-amber-500/10 active:scale-[0.98]">
             
-            <div class="absolute inset-0 rounded-3xl bg-gradient-to-r from-amber-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
+            <div class="absolute inset-0 rounded-3xl bg-gradient-to-r from-amber-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
 
             <div class="relative bg-gradient-to-br from-amber-500 to-orange-600 text-white w-16 h-16 rounded-2xl flex items-center justify-center text-2xl shadow-lg shadow-amber-500/30 shrink-0 transition-transform duration-300 group-hover:scale-105">
                 <i class="fa-solid fa-calendar-days"></i>
-                <span class="absolute -top-1 -right-1 w-3.5 h-3.5 bg-emerald-500 border-2 border-slate-900 rounded-full animate-pulse"></span>
+                <span class="absolute -top-1 -right-1 w-3.5 h-3.5 bg-emerald-500 border-2 border-slate-900 rounded-full"></span>
             </div>
             
             <div class="relative flex-1">
                 <div class="flex items-center justify-between">
                     <h2 class="text-lg font-semibold text-white group-hover:text-amber-300 transition-colors">Cuadrante de Guardias</h2>
-                    <i class="fa-solid fa-arrow-right text-slate-600 group-hover:text-amber-400 transform group-hover:translate-x-1 transition-all mr-2"></i>
+                    <span class="text-[10px] font-medium px-2 py-0.5 rounded-full bg-amber-500/10 text-amber-400 border border-amber-500/20">Personal</span>
                 </div>
                 <p class="text-slate-400 text-xs mt-1 leading-relaxed">Planificación y control de turnos y vacaciones.</p>
             </div>
+            <i class="fa-solid fa-arrow-right text-slate-600 group-hover:text-amber-400 transform group-hover:translate-x-1 transition-all"></i>
         </a>
 
     </main>
 
-    <footer class="text-center text-slate-600 text-xs py-6 tracking-wide">
-        Sistema Interno &bull; Acceso Seguro
+    <!-- Pie de página -->
+    <footer class="text-center text-slate-600 text-xs py-6 tracking-wide relative z-10">
+        Sistema Interno &bull; Acceso Seguro &bull; v2.0
     </footer>
 
-    <!-- Script de audio interactivo -->
+    <!-- Scripts (Audio y Atajos de Teclado) -->
     <script>
         function playSound() {
             try {
@@ -133,6 +150,14 @@
                 window.open(url, '_blank');
             }, 200);
         }
+
+        // Atajos de teclado: 1, 2, 3
+        document.addEventListener('keydown', (e) => {
+            const cards = document.querySelectorAll('main a');
+            if (e.key === '1' && cards[0]) cards[0].click();
+            if (e.key === '2' && cards[1]) cards[1].click();
+            if (e.key === '3' && cards[2]) cards[2].click();
+        });
     </script>
 </body>
 </html>
