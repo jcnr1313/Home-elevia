@@ -42,7 +42,7 @@
     <!-- Pantalla de Carga Inicial (Boot Screen) -->
     <div id="boot-screen" class="fixed inset-0 bg-slate-950 z-50 flex flex-col items-center justify-center transition-opacity duration-700">
         <div class="relative mb-6">
-            <div class="w-24 h-24 p-2 rounded-3xl bg-slate-900 border border-indigo-500/40 flex items-center justify-center animate-pulse-slow overflow-hidden shadow-xl">
+            <div class="w-32 h-20 p-2.5 rounded-3xl bg-slate-900 border border-indigo-500/40 flex items-center justify-center animate-pulse-slow overflow-hidden shadow-2xl">
                 <img src="logo.jpeg" alt="Logo" class="w-full h-full object-contain">
             </div>
             <div class="absolute -inset-2 rounded-3xl bg-indigo-500/10 blur-xl"></div>
@@ -75,8 +75,8 @@
             <span id="current-time" class="font-mono-custom text-[11px]">Cargando hora...</span>
         </div>
         
-        <!-- Logo Incorporado (Ajustado a rectangular/contain) -->
-        <div class="inline-flex items-center justify-center w-36 h-20 p-2 rounded-2xl bg-slate-900 border border-indigo-500/40 shadow-xl shadow-indigo-500/20 mb-3 animate-pulse-slow overflow-hidden">
+        <!-- Logo Incorporado (Ajustado perfectamente para formato rectangular) -->
+        <div class="inline-flex items-center justify-center w-40 h-24 p-3 rounded-3xl bg-slate-900 border border-indigo-500/40 shadow-xl shadow-indigo-500/20 mb-4 animate-pulse-slow overflow-hidden">
             <img src="logo.jpeg" alt="Portal Corporativo Logo" class="w-full h-full object-contain">
         </div>
         <h1 class="text-2xl font-bold tracking-tight text-white">Portal Corporativo</h1>
@@ -88,7 +88,7 @@
         
         <!-- Tarjeta 1: Control de Ocas -->
         <a href="https://jcnr1313.github.io/Recetas/" target="_blank" onclick="handleClick(event, 'https://jcnr1313.github.io/Recetas/', 'Control de Ocas')"
-           class="group relative bg-slate-900/50 backdrop-blur-xl border border-slate-800/80 hover:border-indigo-500/60 p-5 rounded-3xl flex items-center space-x-5 shadow-2xl shadow-black/40 transition-all duration-300 hover:-translate-y-1 hover:shadow-indigo-500/10 active:scale-[0.98] overflow-hidden">
+           class="group relative bg-slate-900/50 backdrop-blur-xl border border-slate-800/80 hover:border-indigo-500/80 p-5 rounded-3xl flex items-center space-x-5 shadow-2xl shadow-black/40 transition-all duration-300 hover:-translate-y-1 hover:shadow-indigo-500/10 active:scale-[0.98] overflow-hidden">
             <div class="absolute inset-0 rounded-3xl bg-gradient-to-r from-indigo-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
             <div class="relative bg-gradient-to-br from-indigo-500 to-blue-600 text-white w-16 h-16 rounded-2xl flex items-center justify-center text-2xl shadow-lg shadow-indigo-500/30 shrink-0 transition-transform duration-300 group-hover:scale-105">
                 <i class="fa-solid fa-gears"></i>
@@ -106,7 +106,7 @@
 
         <!-- Tarjeta 2: Hoja de Gastos -->
         <a href="https://jcnr1313.github.io/Hoja-de-gastos/" target="_blank" onclick="handleClick(event, 'https://jcnr1313.github.io/Hoja-de-gastos/', 'Hoja de Gastos')"
-           class="group relative bg-slate-900/50 backdrop-blur-xl border border-slate-800/80 hover:border-emerald-500/60 p-5 rounded-3xl flex items-center space-x-5 shadow-2xl shadow-black/40 transition-all duration-300 hover:-translate-y-1 hover:shadow-emerald-500/10 active:scale-[0.98] overflow-hidden">
+           class="group relative bg-slate-900/50 backdrop-blur-xl border border-slate-800/80 hover:border-emerald-500/80 p-5 rounded-3xl flex items-center space-x-5 shadow-2xl shadow-black/40 transition-all duration-300 hover:-translate-y-1 hover:shadow-emerald-500/10 active:scale-[0.98] overflow-hidden">
             <div class="absolute inset-0 rounded-3xl bg-gradient-to-r from-emerald-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
             <div class="relative bg-gradient-to-br from-emerald-500 to-teal-600 text-white w-16 h-16 rounded-2xl flex items-center justify-center text-2xl shadow-lg shadow-emerald-500/30 shrink-0 transition-transform duration-300 group-hover:scale-105">
                 <i class="fa-solid fa-receipt"></i>
@@ -124,7 +124,7 @@
 
         <!-- Tarjeta 3: Cuadrante de Guardias -->
         <a href="https://jcnr1313.github.io/guardias/" target="_blank" onclick="handleClick(event, 'https://jcnr1313.github.io/guardias/', 'Cuadrante de Guardias')"
-           class="group relative bg-slate-900/50 backdrop-blur-xl border border-slate-800/80 hover:border-amber-500/60 p-5 rounded-3xl flex items-center space-x-5 shadow-2xl shadow-black/40 transition-all duration-300 hover:-translate-y-1 hover:shadow-amber-500/10 active:scale-[0.98] overflow-hidden">
+           class="group relative bg-slate-900/50 backdrop-blur-xl border border-slate-800/80 hover:border-amber-500/80 p-5 rounded-3xl flex items-center space-x-5 shadow-2xl shadow-black/40 transition-all duration-300 hover:-translate-y-1 hover:shadow-amber-500/10 active:scale-[0.98] overflow-hidden">
             <div class="absolute inset-0 rounded-3xl bg-gradient-to-r from-amber-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
             <div class="relative bg-gradient-to-br from-amber-500 to-orange-600 text-white w-16 h-16 rounded-2xl flex items-center justify-center text-2xl shadow-lg shadow-amber-500/30 shrink-0 transition-transform duration-300 group-hover:scale-105">
                 <i class="fa-solid fa-shield-halved"></i>
@@ -142,7 +142,7 @@
 
         <!-- Tarjeta 4: Vacaciones y Asuntos Propios -->
         <a href="https://jcnr1313.github.io/vacaciones/" target="_blank" onclick="handleClick(event, 'https://jcnr1313.github.io/vacaciones/', 'Vacaciones y Asuntos Propios')"
-           class="group relative bg-slate-900/50 backdrop-blur-xl border border-slate-800/80 hover:border-emerald-500/60 p-5 rounded-3xl flex items-center space-x-5 shadow-2xl shadow-black/40 transition-all duration-300 hover:-translate-y-1 hover:shadow-emerald-500/10 active:scale-[0.98] overflow-hidden">
+           class="group relative bg-slate-900/50 backdrop-blur-xl border border-slate-800/80 hover:border-emerald-500/80 p-5 rounded-3xl flex items-center space-x-5 shadow-2xl shadow-black/40 transition-all duration-300 hover:-translate-y-1 hover:shadow-emerald-500/10 active:scale-[0.98] overflow-hidden">
             <div class="absolute inset-0 rounded-3xl bg-gradient-to-r from-emerald-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
             <div class="relative bg-gradient-to-br from-emerald-600 to-teal-500 text-white w-16 h-16 rounded-2xl flex items-center justify-center text-2xl shadow-lg shadow-emerald-500/30 shrink-0 transition-transform duration-300 group-hover:scale-105">
                 <i class="fa-solid fa-umbrella-beach"></i>
@@ -314,7 +314,7 @@
             if (!chatOpen) {
                 bubble.style.opacity = '1';
                 bubble.style.transform = 'translateY(0)';
-                bubble.style.pointerevents = 'auto';
+                bubble.style.pointerEvents = 'auto'; // Corregido el bug de puntero
             }
         }, 4000);
 
