@@ -42,8 +42,8 @@
     <!-- Pantalla de Carga Inicial (Boot Screen) -->
     <div id="boot-screen" class="fixed inset-0 bg-slate-950 z-50 flex flex-col items-center justify-center transition-opacity duration-700">
         <div class="relative mb-6">
-            <div class="w-20 h-20 rounded-3xl bg-indigo-600/20 border border-indigo-500/40 flex items-center justify-center animate-pulse-slow">
-                <i class="fa-solid fa-terminal text-3xl text-indigo-400"></i>
+            <div class="w-20 h-20 rounded-3xl bg-indigo-600/20 border border-indigo-500/40 flex items-center justify-center animate-pulse-slow overflow-hidden">
+                <img src="logo.jpeg" alt="Logo" class="w-full h-full object-cover">
             </div>
             <div class="absolute -inset-2 rounded-3xl bg-indigo-500/10 blur-xl"></div>
         </div>
@@ -75,8 +75,9 @@
             <span id="current-time" class="font-mono-custom text-[11px]">Cargando hora...</span>
         </div>
         
-        <div class="inline-flex items-center justify-center w-16 h-16 rounded-3xl bg-gradient-to-tr from-indigo-500/20 to-violet-500/20 border border-indigo-500/30 text-indigo-400 mb-3 shadow-inner animate-pulse-slow">
-            <i class="fa-solid fa-cube text-2xl"></i>
+        <!-- Logo Incorporado -->
+        <div class="inline-flex items-center justify-center w-20 h-20 rounded-3xl bg-slate-900 border-2 border-indigo-500/40 shadow-xl shadow-indigo-500/20 mb-3 animate-pulse-slow overflow-hidden">
+            <img src="logo.jpeg" alt="Portal Corporativo Logo" class="w-full h-full object-cover">
         </div>
         <h1 class="text-2xl font-bold tracking-tight text-white">Portal Corporativo</h1>
         <p class="text-slate-400 text-xs mt-1">Selecciona una aplicación o usa las teclas rápidas <kbd class="px-1.5 py-0.5 bg-slate-900 text-indigo-300 rounded text-xs border border-slate-800 font-mono-custom">1</kbd> <kbd class="px-1.5 py-0.5 bg-slate-900 text-indigo-300 rounded text-xs border border-slate-800 font-mono-custom">2</kbd> <kbd class="px-1.5 py-0.5 bg-slate-900 text-indigo-300 rounded text-xs border border-slate-800 font-mono-custom">3</kbd> <kbd class="px-1.5 py-0.5 bg-slate-900 text-indigo-300 rounded text-xs border border-slate-800 font-mono-custom">4</kbd></p>
@@ -139,7 +140,7 @@
             <i class="fa-solid fa-arrow-right text-slate-600 group-hover:text-amber-400 transform group-hover:translate-x-1 transition-all"></i>
         </a>
 
-        <!-- Tarjeta 4: Vacaciones y Asuntos Propios (Actualizada) -->
+        <!-- Tarjeta 4: Vacaciones y Asuntos Propios -->
         <a href="https://jcnr1313.github.io/vacaciones/" target="_blank" onclick="handleClick(event, 'https://jcnr1313.github.io/vacaciones/', 'Vacaciones y Asuntos Propios')"
            class="group relative bg-slate-900/50 backdrop-blur-xl border border-slate-800/80 hover:border-emerald-500/60 p-5 rounded-3xl flex items-center space-x-5 shadow-2xl shadow-black/40 transition-all duration-300 hover:-translate-y-1 hover:shadow-emerald-500/10 active:scale-[0.98] overflow-hidden">
             <div class="absolute inset-0 rounded-3xl bg-gradient-to-r from-emerald-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
