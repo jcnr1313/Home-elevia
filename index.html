@@ -2,8 +2,15 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Portal Corporativo • Pro</title>
+    
+    <!-- PWA & iOS Meta Tags -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Portal Pro">
+    <meta name="theme-color" content="#020617">
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- FontAwesome -->
@@ -32,10 +39,12 @@
 
     <!-- Cabecera y Estado -->
     <header class="text-center py-6 relative z-10">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900/80 border border-slate-800 text-xs text-slate-400 mb-4 shadow-sm backdrop-blur-md">
+        <!-- Widget de Estado en Vivo -->
+        <div id="live-status" class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900/80 border border-slate-800 text-xs text-slate-400 mb-4 shadow-sm backdrop-blur-md">
             <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-            <span>Sistema Operativo • Sesión Segura</span>
+            <span id="current-time">Cargando hora...</span>
         </div>
+        
         <div class="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 mb-3 shadow-inner animate-pulse-slow">
             <i class="fa-solid fa-layer-group text-2xl"></i>
         </div>
@@ -43,20 +52,17 @@
         <p class="text-slate-400 text-sm mt-1">Selecciona una aplicación o usa las teclas <kbd class="px-1.5 py-0.5 bg-slate-800 text-slate-300 rounded text-xs border border-slate-700">1</kbd> <kbd class="px-1.5 py-0.5 bg-slate-800 text-slate-300 rounded text-xs border border-slate-700">2</kbd> <kbd class="px-1.5 py-0.5 bg-slate-800 text-slate-300 rounded text-xs border border-slate-700">3</kbd></p>
     </header>
 
-    <!-- Contenedor de Tarjetas -->
+    <!-- Contenedor de Tarjetas con efecto Glow de Puntero -->
     <main class="grid grid-cols-1 gap-5 max-w-md mx-auto w-full my-auto relative z-10">
         
         <!-- Tarjeta 1: Control de Ocas -->
         <a href="https://jcnr1313.github.io/Recetas/" target="_blank" onclick="handleClick(event, 'https://jcnr1313.github.io/Recetas/')"
-           class="group relative bg-slate-900/60 backdrop-blur-xl border border-slate-800/80 hover:border-indigo-500/60 p-5 rounded-3xl flex items-center space-x-5 shadow-2xl shadow-black/40 transition-all duration-300 hover:-translate-y-1 hover:shadow-indigo-500/10 active:scale-[0.98]">
-            
+           class="card-glow group relative bg-slate-900/60 backdrop-blur-xl border border-slate-800/80 hover:border-indigo-500/60 p-5 rounded-3xl flex items-center space-x-5 shadow-2xl shadow-black/40 transition-all duration-300 hover:-translate-y-1 hover:shadow-indigo-500/10 active:scale-[0.98] overflow-hidden">
             <div class="absolute inset-0 rounded-3xl bg-gradient-to-r from-indigo-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
-
             <div class="relative bg-gradient-to-br from-indigo-500 to-blue-600 text-white w-16 h-16 rounded-2xl flex items-center justify-center text-2xl shadow-lg shadow-indigo-500/30 shrink-0 transition-transform duration-300 group-hover:scale-105">
                 <i class="fa-solid fa-gears"></i>
                 <span class="absolute -top-1 -right-1 w-3.5 h-3.5 bg-emerald-500 border-2 border-slate-900 rounded-full"></span>
             </div>
-            
             <div class="relative flex-1">
                 <div class="flex items-center justify-between">
                     <h2 class="text-lg font-semibold text-white group-hover:text-indigo-300 transition-colors">Control de Ocas</h2>
@@ -69,15 +75,12 @@
 
         <!-- Tarjeta 2: Hoja de Gastos -->
         <a href="https://jcnr1313.github.io/Hoja-de-gastos/" target="_blank" onclick="handleClick(event, 'https://jcnr1313.github.io/Hoja-de-gastos/')"
-           class="group relative bg-slate-900/60 backdrop-blur-xl border border-slate-800/80 hover:border-emerald-500/60 p-5 rounded-3xl flex items-center space-x-5 shadow-2xl shadow-black/40 transition-all duration-300 hover:-translate-y-1 hover:shadow-emerald-500/10 active:scale-[0.98]">
-            
+           class="card-glow group relative bg-slate-900/60 backdrop-blur-xl border border-slate-800/80 hover:border-emerald-500/60 p-5 rounded-3xl flex items-center space-x-5 shadow-2xl shadow-black/40 transition-all duration-300 hover:-translate-y-1 hover:shadow-emerald-500/10 active:scale-[0.98] overflow-hidden">
             <div class="absolute inset-0 rounded-3xl bg-gradient-to-r from-emerald-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
-
             <div class="relative bg-gradient-to-br from-emerald-500 to-teal-600 text-white w-16 h-16 rounded-2xl flex items-center justify-center text-2xl shadow-lg shadow-emerald-500/30 shrink-0 transition-transform duration-300 group-hover:scale-105">
                 <i class="fa-solid fa-receipt"></i>
                 <span class="absolute -top-1 -right-1 w-3.5 h-3.5 bg-emerald-500 border-2 border-slate-900 rounded-full"></span>
             </div>
-            
             <div class="relative flex-1">
                 <div class="flex items-center justify-between">
                     <h2 class="text-lg font-semibold text-white group-hover:text-emerald-300 transition-colors">Hoja de Gastos</h2>
@@ -90,15 +93,12 @@
 
         <!-- Tarjeta 3: Cuadrante de Guardias -->
         <a href="https://jcnr1313.github.io/guardias/" target="_blank" onclick="handleClick(event, 'https://jcnr1313.github.io/guardias/')"
-           class="group relative bg-slate-900/60 backdrop-blur-xl border border-slate-800/80 hover:border-amber-500/60 p-5 rounded-3xl flex items-center space-x-5 shadow-2xl shadow-black/40 transition-all duration-300 hover:-translate-y-1 hover:shadow-amber-500/10 active:scale-[0.98]">
-            
+           class="card-glow group relative bg-slate-900/60 backdrop-blur-xl border border-slate-800/80 hover:border-amber-500/60 p-5 rounded-3xl flex items-center space-x-5 shadow-2xl shadow-black/40 transition-all duration-300 hover:-translate-y-1 hover:shadow-amber-500/10 active:scale-[0.98] overflow-hidden">
             <div class="absolute inset-0 rounded-3xl bg-gradient-to-r from-amber-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
-
             <div class="relative bg-gradient-to-br from-amber-500 to-orange-600 text-white w-16 h-16 rounded-2xl flex items-center justify-center text-2xl shadow-lg shadow-amber-500/30 shrink-0 transition-transform duration-300 group-hover:scale-105">
                 <i class="fa-solid fa-calendar-days"></i>
                 <span class="absolute -top-1 -right-1 w-3.5 h-3.5 bg-emerald-500 border-2 border-slate-900 rounded-full"></span>
             </div>
-            
             <div class="relative flex-1">
                 <div class="flex items-center justify-between">
                     <h2 class="text-lg font-semibold text-white group-hover:text-amber-300 transition-colors">Cuadrante de Guardias</h2>
@@ -111,22 +111,84 @@
 
     </main>
 
+    <!-- Asistente IA Flotante (Bocadillo / Widget) -->
+    <div id="ai-assistant-container" class="fixed bottom-6 right-6 z-50 flex flex-col items-end">
+        <!-- Bocadillo de texto emergente -->
+        <div id="ai-speech-bubble" class="mb-3 bg-slate-900/90 border border-slate-700 text-slate-200 text-xs px-4 py-2.5 rounded-2xl shadow-2xl backdrop-blur-xl flex items-center gap-3 transition-all duration-300 translate-y-2 opacity-0 pointer-events-none">
+            <span>👋 ¿Necesitas ayuda con los turnos o gastos?</span>
+            <button onclick="toggleAiChat()" class="text-indigo-400 hover:text-indigo-300 font-semibold underline">Preguntar</button>
+        </div>
+
+        <!-- Botón flotante FAB -->
+        <button onclick="toggleAiChat()" class="relative group bg-gradient-to-tr from-indigo-600 to-violet-600 hover:from-indigo-500 hover:to-violet-500 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-xl shadow-indigo-600/30 transition-all duration-300 hover:scale-110 active:scale-95">
+            <i class="fa-solid fa-robot text-xl transition-transform group-hover:rotate-12"></i>
+            <span class="absolute -top-1 -right-1 w-3.5 h-3.5 bg-emerald-400 border-2 border-slate-950 rounded-full animate-ping"></span>
+            <span class="absolute -top-1 -right-1 w-3.5 h-3.5 bg-emerald-500 border-2 border-slate-950 rounded-full"></span>
+        </button>
+
+        <!-- Ventana de Chat Flotante (Oculta por defecto) -->
+        <div id="ai-chat-window" class="hidden absolute bottom-20 right-0 w-80 sm:w-96 bg-slate-900/95 border border-slate-800 rounded-3xl shadow-2xl backdrop-blur-2xl flex flex-col overflow-hidden transition-all duration-300 origin-bottom-right">
+            <!-- Header del Chat -->
+            <div class="px-5 py-4 bg-slate-800/50 border-b border-slate-800 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-full bg-indigo-500/20 border border-indigo-500/30 flex items-center justify-center text-indigo-400">
+                        <i class="fa-solid fa-robot text-sm"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-sm font-semibold text-white">Asistente Pro</h3>
+                        <p class="text-[10px] text-emerald-400 flex items-center gap-1">
+                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span> En línea
+                        </p>
+                    </div>
+                </div>
+                <button onclick="toggleAiChat()" class="text-slate-400 hover:text-white p-1">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+            <!-- Cuerpo de Mensajes -->
+            <div id="ai-messages" class="p-4 h-64 overflow-y-auto space-y-3 text-xs flex flex-col">
+                <div class="bg-slate-800/80 text-slate-300 p-3 rounded-2xl rounded-tl-sm max-w-[85%] self-start leading-relaxed">
+                    ¡Hola! Soy tu asistente virtual corporativo. ¿En qué puedo ayudarte hoy con tus accesos, notas o registros?
+                </div>
+            </div>
+            <!-- Input de Texto -->
+            <div class="p-3 bg-slate-900 border-t border-slate-800 flex items-center gap-2">
+                <input type="text" id="ai-input" placeholder="Escribe tu consulta..." onkeydown="handleAiInput(event)" class="flex-1 bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-indigo-500 transition-colors">
+                <button onclick="sendAiMessage()" class="bg-indigo-600 hover:bg-indigo-500 text-white px-3 py-2 rounded-xl transition-colors">
+                    <i class="fa-solid fa-paper-plane text-xs"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
     <!-- Pie de página -->
     <footer class="text-center text-slate-600 text-xs py-6 tracking-wide relative z-10">
-        Sistema Interno &bull; Acceso Seguro &bull; v2.0
+        Sistema Interno &bull; Acceso Seguro &bull; v2.1
     </footer>
 
-    <!-- Scripts (Audio y Atajos de Teclado) -->
+    <!-- Scripts -->
     <script>
+        // Reloj en tiempo real
+        function updateClock() {
+            const now = new Date();
+            const options = { weekday: 'short', day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' };
+            document.getElementById('current-time').textContent = now.toLocaleDateString('es-ES', options);
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+
+        // Sonido y Vibración Háptica
         function playSound() {
             try {
+                if (navigator.vibrate) navigator.vibrate([30, 50, 30]); // Vibración háptica dual
+
                 const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
                 const osc = audioCtx.createOscillator();
                 const gain = audioCtx.createGain();
                 
                 osc.type = 'sine';
-                osc.frequency.setValueAtTime(587.33, audioCtx.currentTime); // D5
-                osc.frequency.exponentialRampToValueAtTime(880, audioCtx.currentTime + 0.08); // A5
+                osc.frequency.setValueAtTime(587.33, audioCtx.currentTime);
+                osc.frequency.exponentialRampToValueAtTime(880, audioCtx.currentTime + 0.08);
                 
                 gain.gain.setValueAtTime(0.1, audioCtx.currentTime);
                 gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.08);
@@ -136,16 +198,12 @@
                 
                 osc.start();
                 osc.stop(audioCtx.currentTime + 0.08);
-            } catch (e) {
-                // Previene errores si el navegador bloquea audio sin interacción previa
-            }
+            } catch (e) {}
         }
 
         function handleClick(event, url) {
             event.preventDefault();
             playSound();
-
-            // Retardo breve para escuchar el efecto antes de abrir la pestaña
             setTimeout(() => {
                 window.open(url, '_blank');
             }, 200);
@@ -153,11 +211,95 @@
 
         // Atajos de teclado: 1, 2, 3
         document.addEventListener('keydown', (e) => {
+            if (document.activeElement.tagName === 'INPUT') return; // Evitar disparar si escribe en el chat
             const cards = document.querySelectorAll('main a');
             if (e.key === '1' && cards[0]) cards[0].click();
             if (e.key === '2' && cards[1]) cards[1].click();
             if (e.key === '3' && cards[2]) cards[2].click();
         });
+
+        // Efecto Glow dinámico en tarjetas con el cursor
+        document.querySelectorAll('.card-glow').forEach(card => {
+            card.addEventListener('mousemove', e => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+            });
+        });
+
+        // Lógica del Chat de IA Flotante
+        let chatOpen = false;
+        function toggleAiChat() {
+            chatOpen = !chatOpen;
+            const chatWindow = document.getElementById('ai-chat-window');
+            const speechBubble = document.getElementById('ai-speech-bubble');
+            
+            // Ocultar bocadillo al abrir
+            speechBubble.style.opacity = '0';
+            speechBubble.style.transform = 'translateY(8px)';
+            speechBubble.style.pointerEvents = 'none';
+
+            if (chatOpen) {
+                chatWindow.classList.remove('hidden');
+                setTimeout(() => chatWindow.classList.add('scale-100'), 10);
+            } else {
+                chatWindow.classList.add('hidden');
+            }
+        }
+
+        // Mostrar bocadillo automáticamente a los 3 segundos
+        setTimeout(() => {
+            const bubble = document.getElementById('ai-speech-bubble');
+            if (!chatOpen) {
+                bubble.style.opacity = '1';
+                bubble.style.transform = 'translateY(0)';
+                bubble.style.pointerEvents = 'auto';
+            }
+        }, 3000);
+
+        function handleAiInput(e) {
+            if (e.key === 'Enter') sendAiMessage();
+        }
+
+        function sendAiMessage() {
+            const input = document.getElementById('ai-input');
+            const messagesContainer = document.getElementById('ai-messages');
+            const text = input.value.trim();
+            if (!text) return;
+
+            // Mensaje del usuario
+            messagesContainer.innerHTML += `
+                <div class="bg-indigo-600 text-white p-3 rounded-2xl rounded-tr-sm max-w-[85%] self-end leading-relaxed">
+                    ${escapeHtml(text)}
+                </div>
+            `;
+            input.value = '';
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+
+            // Respuesta simulada de la IA
+            setTimeout(() => {
+                let reply = "Entendido. Recuerda que puedes acceder rápidamente pulsando las teclas 1, 2 o 3 de tu teclado.";
+                if (text.toLowerCase().includes('gasto')) {
+                    reply = "Para la Hoja de Gastos, asegúrate de adjuntar los tiques y guardar los cambios antes de salir.";
+                } else if (text.toLowerCase().includes('turno') || text.toLowerCase().includes('guardia')) {
+                    reply = "Puedes revisar los cambios de turno directamente en el Cuadrante de Guardias (acceso 3).";
+                }
+
+                messagesContainer.innerHTML += `
+                    <div class="bg-slate-800/80 text-slate-300 p-3 rounded-2xl rounded-tl-sm max-w-[85%] self-start leading-relaxed">
+                        ${reply}
+                    </div>
+                `;
+                messagesContainer.scrollTop = messagesContainer.scrollHeight;
+            }, 600);
+        }
+
+        function escapeHtml(text) {
+            const map = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' };
+            return text.replace(/[&<>"']/g, m => map[m]);
+        }
     </script>
 </body>
 </html>
