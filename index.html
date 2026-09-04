@@ -5,21 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Portal Corporativo • Órbita Pro</title>
     
-    <!-- PWA & iOS Meta Tags -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="Portal Pro">
     <meta name="theme-color" content="#020617">
 
-    <!-- Iconos Personalizados para el Home del Móvil -->
     <link rel="apple-touch-icon" href="logo.jpeg">
     <link rel="icon" type="image/jpeg" href="logo.jpeg">
 
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Inter', sans-serif; }
@@ -43,7 +38,6 @@
 </head>
 <body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col justify-between p-6 antialiased selection:bg-indigo-500 selection:text-white relative overflow-x-hidden">
 
-    <!-- Pantalla de Carga Inicial (Boot Screen) -->
     <div id="boot-screen" class="fixed inset-0 bg-slate-950 z-50 flex flex-col items-center justify-center transition-opacity duration-700">
         <div class="relative mb-6">
             <div class="w-32 h-20 p-2.5 rounded-3xl bg-slate-900 border border-indigo-500/40 flex items-center justify-center animate-pulse-slow overflow-hidden shadow-2xl">
@@ -57,40 +51,32 @@
         </div>
     </div>
 
-    <!-- Notificación Toast HUD (Flotante Arriba) -->
     <div id="hud-toast" class="fixed top-6 left-1/2 -translate-x-1/2 z-50 bg-slate-900/90 border border-slate-700/80 px-4 py-2.5 rounded-2xl shadow-2xl backdrop-blur-xl flex items-center gap-3 transition-all duration-300 -translate-y-20 opacity-0 pointer-events-none">
         <div class="w-2 h-2 rounded-full bg-indigo-500 animate-ping"></div>
         <span id="toast-text" class="text-xs font-mono-custom text-slate-200">Sistema operativo sincronizado</span>
     </div>
 
-    <!-- Fondo de Malla Difuminado y Partículas de Luz -->
     <div class="absolute top-0 left-1/4 w-96 h-96 bg-indigo-600/15 rounded-full blur-3xl pointer-events-none animate-float"></div>
     <div class="absolute bottom-10 right-1/4 w-96 h-96 bg-emerald-600/10 rounded-full blur-3xl pointer-events-none animate-float" style="animation-delay: 3s;"></div>
-    <!-- Línea de escaneo futurista sutil -->
     <div class="absolute inset-0 pointer-events-none overflow-hidden opacity-20">
         <div class="w-full h-1 bg-gradient-to-r from-transparent via-indigo-500 to-transparent scanline"></div>
     </div>
 
-    <!-- Cabecera y Estado -->
     <header class="text-center py-6 relative z-10">
-        <!-- Widget de Estado en Vivo -->
         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900/80 border border-slate-800 text-xs text-slate-400 mb-4 shadow-sm backdrop-blur-md">
             <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
             <span id="current-time" class="font-mono-custom text-[11px]">Cargando hora...</span>
         </div>
         
-        <!-- Logo Incorporado (Ajustado perfectamente para formato rectangular) -->
         <div class="inline-flex items-center justify-center w-40 h-24 p-3 rounded-3xl bg-slate-900 border border-indigo-500/40 shadow-xl shadow-indigo-500/20 mb-4 animate-pulse-slow overflow-hidden">
             <img src="logo.jpeg" alt="Portal Corporativo Logo" class="w-full h-full object-contain">
         </div>
         <h1 class="text-2xl font-bold tracking-tight text-white">Portal Corporativo</h1>
-        <p class="text-slate-400 text-xs mt-1">Selecciona una aplicación o usa las teclas rápidas <kbd class="px-1.5 py-0.5 bg-slate-900 text-indigo-300 rounded text-xs border border-slate-800 font-mono-custom">1</kbd> <kbd class="px-1.5 py-0.5 bg-slate-900 text-indigo-300 rounded text-xs border border-slate-800 font-mono-custom">2</kbd> <kbd class="px-1.5 py-0.5 bg-slate-900 text-indigo-300 rounded text-xs border border-slate-800 font-mono-custom">3</kbd> <kbd class="px-1.5 py-0.5 bg-slate-900 text-indigo-300 rounded text-xs border border-slate-800 font-mono-custom">4</kbd></p>
+        <p class="text-slate-400 text-xs mt-1">Selecciona una aplicación o usa las teclas rápidas <kbd class="px-1.5 py-0.5 bg-slate-900 text-indigo-300 rounded text-xs border border-slate-800 font-mono-custom">1</kbd> <kbd class="px-1.5 py-0.5 bg-slate-900 text-indigo-300 rounded text-xs border border-slate-800 font-mono-custom">2</kbd> <kbd class="px-1.5 py-0.5 bg-slate-900 text-indigo-300 rounded text-xs border border-slate-800 font-mono-custom">3</kbd> <kbd class="px-1.5 py-0.5 bg-slate-900 text-indigo-300 rounded text-xs border border-slate-800 font-mono-custom">4</kbd> <kbd class="px-1.5 py-0.5 bg-slate-900 text-indigo-300 rounded text-xs border border-slate-800 font-mono-custom">5</kbd></p>
     </header>
 
-    <!-- Contenedor de Tarjetas -->
     <main class="grid grid-cols-1 gap-5 max-w-md mx-auto w-full my-auto relative z-10">
         
-        <!-- Tarjeta 1: Control de Ocas -->
         <a href="https://jcnr1313.github.io/Recetas/" target="_blank" onclick="handleClick(event, 'https://jcnr1313.github.io/Recetas/', 'Control de Ocas')"
            class="group relative bg-slate-900/50 backdrop-blur-xl border border-slate-800/80 hover:border-indigo-500/80 p-5 rounded-3xl flex items-center space-x-5 shadow-2xl shadow-black/40 transition-all duration-300 hover:-translate-y-1 hover:shadow-indigo-500/10 active:scale-[0.98] overflow-hidden">
             <div class="absolute inset-0 rounded-3xl bg-gradient-to-r from-indigo-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
@@ -108,7 +94,6 @@
             <i class="fa-solid fa-arrow-right text-slate-600 group-hover:text-indigo-400 transform group-hover:translate-x-1 transition-all"></i>
         </a>
 
-        <!-- Tarjeta 2: Hoja de Gastos -->
         <a href="https://jcnr1313.github.io/Hoja-de-gastos/" target="_blank" onclick="handleClick(event, 'https://jcnr1313.github.io/Hoja-de-gastos/', 'Hoja de Gastos')"
            class="group relative bg-slate-900/50 backdrop-blur-xl border border-slate-800/80 hover:border-emerald-500/80 p-5 rounded-3xl flex items-center space-x-5 shadow-2xl shadow-black/40 transition-all duration-300 hover:-translate-y-1 hover:shadow-emerald-500/10 active:scale-[0.98] overflow-hidden">
             <div class="absolute inset-0 rounded-3xl bg-gradient-to-r from-emerald-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
@@ -126,7 +111,23 @@
             <i class="fa-solid fa-arrow-right text-slate-600 group-hover:text-emerald-400 transform group-hover:translate-x-1 transition-all"></i>
         </a>
 
-        <!-- Tarjeta 3: Cuadrante de Guardias -->
+        <a href="https://jcnr1313.github.io/turnos/" target="_blank" onclick="handleClick(event, 'https://jcnr1313.github.io/turnos/', 'Control de Turnos')"
+           class="group relative bg-slate-900/50 backdrop-blur-xl border border-slate-800/80 hover:border-sky-500/80 p-5 rounded-3xl flex items-center space-x-5 shadow-2xl shadow-black/40 transition-all duration-300 hover:-translate-y-1 hover:shadow-sky-500/10 active:scale-[0.98] overflow-hidden">
+            <div class="absolute inset-0 rounded-3xl bg-gradient-to-r from-sky-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
+            <div class="relative bg-gradient-to-br from-sky-500 to-blue-700 text-white w-16 h-16 rounded-2xl flex items-center justify-center text-2xl shadow-lg shadow-sky-500/30 shrink-0 transition-transform duration-300 group-hover:scale-105">
+                <i class="fa-solid fa-clock"></i>
+                <span class="absolute -top-1 -right-1 w-3.5 h-3.5 bg-emerald-500 border-2 border-slate-900 rounded-full"></span>
+            </div>
+            <div class="relative flex-1">
+                <div class="flex items-center justify-between">
+                    <h2 class="text-lg font-semibold text-white group-hover:text-sky-300 transition-colors">Control de Turnos</h2>
+                    <span class="text-[10px] font-mono-custom font-medium px-2 py-0.5 rounded-full bg-sky-500/10 text-sky-400 border border-sky-500/20">TRN_03</span>
+                </div>
+                <p class="text-slate-400 text-xs mt-1 leading-relaxed">Gestión de turnos de mañana, tarde y guardias.</p>
+            </div>
+            <i class="fa-solid fa-arrow-right text-slate-600 group-hover:text-sky-400 transform group-hover:translate-x-1 transition-all"></i>
+        </a>
+
         <a href="https://jcnr1313.github.io/guardias/" target="_blank" onclick="handleClick(event, 'https://jcnr1313.github.io/guardias/', 'Cuadrante de Guardias')"
            class="group relative bg-slate-900/50 backdrop-blur-xl border border-slate-800/80 hover:border-amber-500/80 p-5 rounded-3xl flex items-center space-x-5 shadow-2xl shadow-black/40 transition-all duration-300 hover:-translate-y-1 hover:shadow-amber-500/10 active:scale-[0.98] overflow-hidden">
             <div class="absolute inset-0 rounded-3xl bg-gradient-to-r from-amber-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
@@ -137,14 +138,13 @@
             <div class="relative flex-1">
                 <div class="flex items-center justify-between">
                     <h2 class="text-lg font-semibold text-white group-hover:text-amber-300 transition-colors">Cuadrante de Guardias</h2>
-                    <span class="text-[10px] font-mono-custom font-medium px-2 py-0.5 rounded-full bg-amber-500/10 text-amber-400 border border-amber-500/20">OPS_03</span>
+                    <span class="text-[10px] font-mono-custom font-medium px-2 py-0.5 rounded-full bg-amber-500/10 text-amber-400 border border-amber-500/20">OPS_04</span>
                 </div>
                 <p class="text-slate-400 text-xs mt-1 leading-relaxed">Planificación anual y recuentos de turnos.</p>
             </div>
             <i class="fa-solid fa-arrow-right text-slate-600 group-hover:text-amber-400 transform group-hover:translate-x-1 transition-all"></i>
         </a>
 
-        <!-- Tarjeta 4: Vacaciones y Asuntos Propios -->
         <a href="https://jcnr1313.github.io/vacaciones/" target="_blank" onclick="handleClick(event, 'https://jcnr1313.github.io/vacaciones/', 'Vacaciones y Asuntos Propios')"
            class="group relative bg-slate-900/50 backdrop-blur-xl border border-slate-800/80 hover:border-emerald-500/80 p-5 rounded-3xl flex items-center space-x-5 shadow-2xl shadow-black/40 transition-all duration-300 hover:-translate-y-1 hover:shadow-emerald-500/10 active:scale-[0.98] overflow-hidden">
             <div class="absolute inset-0 rounded-3xl bg-gradient-to-r from-emerald-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
@@ -155,7 +155,7 @@
             <div class="relative flex-1">
                 <div class="flex items-center justify-between">
                     <h2 class="text-lg font-semibold text-white group-hover:text-emerald-300 transition-colors">Vacaciones</h2>
-                    <span class="text-[10px] font-mono-custom font-medium px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">HR_04</span>
+                    <span class="text-[10px] font-mono-custom font-medium px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">HR_05</span>
                 </div>
                 <p class="text-slate-400 text-xs mt-1 leading-relaxed">Gestión de periodos de descanso y saldos.</p>
             </div>
@@ -164,10 +164,9 @@
 
     </main>
 
-    <!-- Asistente IA Flotante -->
     <div id="ai-assistant-container" class="fixed bottom-6 right-6 z-50 flex flex-col items-end">
         <div id="ai-speech-bubble" class="mb-3 bg-slate-900/90 border border-slate-700 text-slate-200 text-xs px-4 py-2.5 rounded-2xl shadow-2xl backdrop-blur-xl flex items-center gap-3 transition-all duration-300 translate-y-2 opacity-0 pointer-events-none">
-            <span>✨ ¿Listo para optimizar el turno de hoy?</span>
+            <span>✨ ¿Listo para revisar los turnos de hoy?</span>
             <button onclick="toggleAiChat()" class="text-indigo-400 hover:text-indigo-300 font-semibold underline">Consultar</button>
         </div>
 
@@ -208,12 +207,10 @@
         </div>
     </div>
 
-    <!-- Pie de página -->
     <footer class="text-center text-slate-600 text-xs py-6 tracking-wide relative z-10 font-mono-custom">
         CORE_SYS &bull; SECURE_LINK &bull; v3.0 PRO
     </footer>
 
-    <!-- Scripts Épicos -->
     <script>
         // Secuencia de arranque (Boot Screen)
         window.addEventListener('DOMContentLoaded', () => {
@@ -284,7 +281,7 @@
             }, 300);
         }
 
-        // Atajos de teclado: 1, 2, 3, 4 con HUD y sonido
+        // Atajos de teclado: 1, 2, 3, 4, 5 con HUD y sonido
         document.addEventListener('keydown', (e) => {
             if (document.activeElement.tagName === 'INPUT') return;
             const cards = document.querySelectorAll('main a');
@@ -292,6 +289,7 @@
             if (e.key === '2' && cards[1]) cards[1].click();
             if (e.key === '3' && cards[2]) cards[2].click();
             if (e.key === '4' && cards[3]) cards[3].click();
+            if (e.key === '5' && cards[4]) cards[4].click();
         });
 
         // Chat de IA con respuestas temáticas
@@ -346,9 +344,9 @@
                 if (lower.includes('gasto') || lower.includes('tique')) {
                     reply = "Canal de finanzas operativo. Recuerda registrar cada tique con su respectiva categoría.";
                 } else if (lower.includes('turno') || lower.includes('guardia') || lower.includes('cuadrante')) {
-                    reply = "Sincronización de turnos activa. Revisa el acceso 3 para comprobar la planificación.";
+                    reply = "Sincronización de turnos activa. Revisa el acceso 3 o 4 para comprobar la planificación.";
                 } else if (lower.includes('vacaciones')) {
-                    reply = "Módulo de vacaciones listo. Puedes consultar saldos o registrar ausencias en el acceso 4.";
+                    reply = "Módulo de vacaciones listo. Puedes consultar saldos o registrar ausencias en el acceso 5.";
                 }
 
                 messagesContainer.innerHTML += `
