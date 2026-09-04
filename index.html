@@ -11,6 +11,10 @@
     <meta name="apple-mobile-web-app-title" content="Portal Pro">
     <meta name="theme-color" content="#020617">
 
+    <!-- Iconos Personalizados para el Home del Móvil -->
+    <link rel="apple-touch-icon" href="logo.jpeg">
+    <link rel="icon" type="image/jpeg" href="logo.jpeg">
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- FontAwesome -->
@@ -314,7 +318,7 @@
             if (!chatOpen) {
                 bubble.style.opacity = '1';
                 bubble.style.transform = 'translateY(0)';
-                bubble.style.pointerEvents = 'auto'; // Corregido el bug de puntero
+                bubble.style.pointerEvents = 'auto';
             }
         }, 4000);
 
