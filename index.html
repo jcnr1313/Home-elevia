@@ -77,7 +77,7 @@
             <img src="logo.jpeg" alt="Portal Corporativo Logo" class="w-full h-full object-contain">
         </div>
         <h1 class="text-2xl font-bold tracking-tight text-white">Portal Corporativo</h1>
-        <p class="text-slate-400 text-xs mt-1">Selecciona una aplicación o usa las teclas rápidas <kbd class="px-1.5 py-0.5 bg-slate-900 text-indigo-300 rounded text-xs border border-slate-800 font-mono-custom">1</kbd> <kbd class="px-1.5 py-0.5 bg-slate-900 text-indigo-300 rounded text-xs border border-slate-800 font-mono-custom">2</kbd> <kbd class="px-1.5 py-0.5 bg-slate-900 text-indigo-300 rounded text-xs border border-slate-800 font-mono-custom">3</kbd> <kbd class="px-1.5 py-0.5 bg-slate-900 text-indigo-300 rounded text-xs border border-slate-800 font-mono-custom">4</kbd> <kbd class="px-1.5 py-0.5 bg-slate-900 text-indigo-300 rounded text-xs border border-slate-800 font-mono-custom">5</kbd></p>
+        <p class="text-slate-400 text-xs mt-1">Selecciona una aplicación o usa las teclas rápidas <kbd class="px-1.5 py-0.5 bg-slate-900 text-indigo-300 rounded text-xs border border-slate-800 font-mono-custom">1</kbd> <kbd class="px-1.5 py-0.5 bg-slate-900 text-indigo-300 rounded text-xs border border-slate-800 font-mono-custom">2</kbd> <kbd class="px-1.5 py-0.5 bg-slate-900 text-indigo-300 rounded text-xs border border-slate-800 font-mono-custom">3</kbd> <kbd class="px-1.5 py-0.5 bg-slate-900 text-indigo-300 rounded text-xs border border-slate-800 font-mono-custom">4</kbd> <kbd class="px-1.5 py-0.5 bg-slate-900 text-indigo-300 rounded text-xs border border-slate-800 font-mono-custom">5</kbd> <kbd class="px-1.5 py-0.5 bg-slate-900 text-indigo-300 rounded text-xs border border-slate-800 font-mono-custom">6</kbd></p>
     </header>
 
     <main class="grid grid-cols-1 gap-5 max-w-md mx-auto w-full my-auto relative z-10">
@@ -165,6 +165,23 @@
                 <p class="text-slate-400 text-xs mt-1 leading-relaxed">Gestión de periodos de descanso y saldos.</p>
             </div>
             <i class="fa-solid fa-arrow-right text-slate-600 group-hover:text-emerald-400 transform group-hover:translate-x-1 transition-all"></i>
+        </a>
+
+        <a href="https://jcnr1313.github.io/Informes/" target="_blank" onclick="handleClick(event, 'https://jcnr1313.github.io/Informes/', 'Generador de Informes')"
+           class="group relative bg-slate-900/50 backdrop-blur-xl border border-slate-800/80 hover:border-teal-500/80 p-5 rounded-3xl flex items-center space-x-5 shadow-2xl shadow-black/40 transition-all duration-300 hover:-translate-y-1 hover:shadow-teal-500/10 active:scale-[0.98] overflow-hidden">
+            <div class="absolute inset-0 rounded-3xl bg-gradient-to-r from-teal-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
+            <div class="relative bg-gradient-to-br from-teal-600 to-emerald-700 text-white w-16 h-16 rounded-2xl flex items-center justify-center text-2xl shadow-lg shadow-teal-500/30 shrink-0 transition-transform duration-300 group-hover:scale-105">
+                <i class="fa-solid fa-file-lines"></i>
+                <span class="absolute -top-1 -right-1 w-3.5 h-3.5 bg-emerald-500 border-2 border-slate-900 rounded-full"></span>
+            </div>
+            <div class="relative flex-1">
+                <div class="flex items-center justify-between">
+                    <h2 class="text-lg font-semibold text-white group-hover:text-teal-300 transition-colors">Generador de Informes</h2>
+                    <span class="text-[10px] font-mono-custom font-medium px-2 py-0.5 rounded-full bg-teal-500/10 text-teal-400 border border-teal-500/20">RPT_06</span>
+                </div>
+                <p class="text-slate-400 text-xs mt-1 leading-relaxed">Creación y emisión de informes técnicos.</p>
+            </div>
+            <i class="fa-solid fa-arrow-right text-slate-600 group-hover:text-teal-400 transform group-hover:translate-x-1 transition-all"></i>
         </a>
 
     </main>
@@ -286,7 +303,7 @@
             }, 300);
         }
 
-        // Atajos de teclado: 1, 2, 3, 4, 5 con HUD y sonido
+        // Atajos de teclado: 1, 2, 3, 4, 5, 6 con HUD y sonido
         document.addEventListener('keydown', (e) => {
             if (document.activeElement.tagName === 'INPUT') return;
             const cards = document.querySelectorAll('main a');
@@ -295,6 +312,7 @@
             if (e.key === '3' && cards[2]) cards[2].click();
             if (e.key === '4' && cards[3]) cards[3].click();
             if (e.key === '5' && cards[4]) cards[4].click();
+            if (e.key === '6' && cards[5]) cards[5].click();
         });
 
         // Chat de IA con respuestas temáticas
@@ -352,6 +370,8 @@
                     reply = "Sincronización de turnos activa. Revisa el acceso 3 o 4 para comprobar la planificación.";
                 } else if (lower.includes('vacaciones')) {
                     reply = "Módulo de vacaciones listo. Puedes consultar saldos o registrar ausencias en el acceso 5.";
+                } else if (lower.includes('informe') || lower.includes('reporte')) {
+                    reply = "Módulo de informes preparado. Accede al canal 6 para generar y emitir tus documentos técnicos.";
                 }
 
                 messagesContainer.innerHTML += `
